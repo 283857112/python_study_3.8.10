@@ -9,6 +9,9 @@ ADDR = ("127.0.0.1", 18888)
 #创建 tcp 套接字
 sockfd = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
+# 当socket关闭后,本地端用于该socket的端口号立刻就可以重用.通常来说,只有经过系统定义一段时间后才能被重用
+sockfd.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  
+
 #绑定地址
 sockfd.bind(ADDR)
 

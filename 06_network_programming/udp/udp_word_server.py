@@ -16,6 +16,8 @@ def find(word):
 
 ADDR = ("127.0.0.1",18889)
 s = socket(AF_INET, SOCK_DGRAM)
+# 当socket关闭后,本地端用于该socket的端口号立刻就可以重用.通常来说,只有经过系统定义一段时间后才能被重用
+s.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)  
 s.bind(ADDR)
 
 while True:
