@@ -16,7 +16,7 @@ def get_(file, area):
                 f2.write(data)
             print(os.path.getsize("06_network_programming/cat_top.jpg"))
         elif area == "bottom":
-            f.seek((size//2) - 1,0)
+            f.seek(size//2,0)
             data = f.read()
             with open("06_network_programming/cat_bottom.jpg","wb") as f2:
                 f2.write(data)
